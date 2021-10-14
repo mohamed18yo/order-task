@@ -1,4 +1,4 @@
-import { FlexCol, SpinnerContainer,Img, Typography } from "../../../Global.style";
+import { FlexCol, Img, Typography } from "../../../Global.style";
 import { DivIcon } from "../orderCard/orderCard.style";
 
 import { BoxCard } from "./rowCard.style";
