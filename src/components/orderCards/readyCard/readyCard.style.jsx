@@ -9,7 +9,7 @@ import { FlexCol } from '../../../Global.style';
 export const BoxCard= styled(FlexCol)`
     align-items: center;
     width:93px;
-    background: #fff;
+    background: ${({theme}) => theme.body};;
     border-radius:5px;
     box-shadow: 0px 2px 20px #08091E1A;
     padding: 1rem 0;

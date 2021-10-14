@@ -1,5 +1,28 @@
 import styled from "styled-components";
 
+import { createGlobalStyle} from "styled-components";
+
+export const GStyle=createGlobalStyle`
+  body{
+    background: ${({theme}) => theme.body};
+    color:${({theme}) => theme.text}
+  }
+`;
+export const darkTheme = {
+  body: '#FFF',
+  text: '#121212',
+  toggleBorder: '#FFF',
+  background: '#363537',
+  cusColor:"#000",
+}
+export const lightTheme = {
+  body: '#121212',
+  text: '#fff',
+  toggleBorder: '#6B8096',
+  background: '#999',
+  cusColor:"#fff",
+}
+
 export const FlexBox = styled("div")`
   display: flex;
   justify-content: center;
@@ -126,6 +149,10 @@ export const SpinnerContainer = styled.div`
       -webkit-transform: rotate(260deg);
     }
   }
+`;
+
+export const Img= styled('img')`
+
 `;
 
 export const ErrorMsg = styled("span")`

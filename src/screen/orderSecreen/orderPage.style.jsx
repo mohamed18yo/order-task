@@ -15,6 +15,7 @@ export const OrdCol = styled (FlexCol)`
     align-items: center;
     justify-content: flex-start;
     border-radius:10px;
+    color:${({theme}) => theme.text}
 
 `
 export const OrdElm= styled(FlexBox)`
@@ -23,5 +24,5 @@ export const OrdElm= styled(FlexBox)`
     border: 1px solid gray;
     border-radius:10px;
     background:${(props)=>(props.active && "#E4E4E4")};
-    ${(props)=>(props.active && "border: none")}
+    ${(props)=>(props.active && "border: none; color:#000")}
 `;

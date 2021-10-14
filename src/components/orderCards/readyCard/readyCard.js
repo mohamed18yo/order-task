@@ -1,4 +1,4 @@
-import { Line, Typography } from "../../../Global.style";
+import { Line, Typography ,Img} from "../../../Global.style";
 import { BoxCard } from "./readyCard.style";
 
 function ReadyCard() {
@@ -9,7 +9,7 @@ function ReadyCard() {
         Mae Smith
       </Typography>
       <Line width="100%" />
-      <img src="/ordImg.png" />
+      <Img src="/ordImg.png" />
       <Line width="100%" />
       <Typography fontSize="14px" color="#707070">
         Pickup in

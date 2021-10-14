@@ -6,13 +6,14 @@ import { FlexBox, FlexCol } from '../../../Global.style';
 
 export const OrederSection= styled(FlexCol)`
     width:343px;
-    background:#fff;
+    background:${({theme}) => theme.body};
     border-radius:5px;
     align-items: center;
     padding:1rem;
     box-sizing:border-box;
     box-shadow: 0px 2px 20px #08091E1A;
     margin-bottom:1rem;
+    color:${({theme}) => theme.cusColor};
 `;
 
 export const DivMessage= styled('p')`
