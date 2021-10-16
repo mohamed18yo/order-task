@@ -14,7 +14,7 @@ function App() {
   return (
     <DndProvider backend={HTML5Backend}>
       <ThemeProvider theme={ThemeMode}>
-          <GStyle />
+        <GStyle />
         <div className="App">
           <Header Theme={theme} Toggole={toggleTheme} />
           <Tap />

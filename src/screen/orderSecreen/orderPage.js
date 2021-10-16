@@ -10,10 +10,12 @@ import {
 import { OderBox, OrdCol, OrdElm } from "./orderPage.style";
 import { useDrop } from "react-dnd";
 import { useState } from "react";
-const OrderList = [{ id: "158" }, { id: "536" }, { id: "840" }];
+const OrderList = [
+  { id: "158", isOutcoming: false },
+  { id: "840", isOutcoming: false },
+];
 function OrderPage() {
-  const [outgoing, setOutgoing] = useState([]);
-  const [incoming, setIncoming] = useState([...OrderList]);
+  const [list, setList] = useState([...OrderList]);
 
   // eslint-disable-next-line no-unused-vars
   const [{ isOver }, drop] = useDrop(() => ({
@@ -24,10 +26,12 @@ function OrderPage() {
     }),
   }));
   const swapCol = (id) => {
-    const filteredList = incoming.filter((i) => id === i.id);
-    const newList = incoming.filter((i) => id !== i.id);
-    setOutgoing((outgoing) => [...outgoing, filteredList[0]]);
-    setIncoming([...newList]);
+    const filteredList = list.findIndex((i) => id === i.id);
+    console.log(filteredList);
+    const newList = [...list];
+    newList[filteredList].isOutcoming = !newList[filteredList].isOutcoming;
+
+    setList([...newList]);
   };
   return (
     <SectionRole>
@@ -46,9 +50,11 @@ function OrderPage() {
               >
                 Incoming 2
               </Typography>
-              {incoming.map((item) => (
-                <OrderCard key={item.id} id={item.id} />
-              ))}
+              {list
+                .filter((item) => !item.isOutcoming)
+                .map((item) => (
+                  <OrderCard key={item.id} id={item.id} />
+                ))}
             </OrdCol>
             <OrdCol ref={drop}>
               <Typography
@@ -58,9 +64,11 @@ function OrderPage() {
               >
                 Outgoing 1
               </Typography>
-              {outgoing.map((item) => (
-                <OrderCard key={item.id} id={item.id} />
-              ))}
+              {list
+                .filter((item) => item.isOutcoming)
+                .map((item) => (
+                  <OrderCard key={item.id} id={item.id} />
+                ))}
               <RowCard />
               <RowCard />
             </OrdCol>

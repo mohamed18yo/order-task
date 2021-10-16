@@ -1,10 +1,12 @@
-import { Line, Typography ,Img} from "../../../Global.style";
+import { Line, Typography, Img } from "../../../Global.style";
 import { BoxCard } from "./readyCard.style";
 
 function ReadyCard() {
   return (
     <BoxCard>
-      <Typography fontW="700" fontSize="18px">#326 </Typography>
+      <Typography fontW="700" fontSize="18px">
+        #326{" "}
+      </Typography>
       <Typography fontSize="14px" color="#707070">
         Mae Smith
       </Typography>

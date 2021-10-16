@@ -1,27 +1,23 @@
-import {
-  FlexRow,
-  Line,
-  Typography,
-  FlexCol,
-  Img
-} from "../../../Global.style";
-
+import { FlexRow, Line, Typography, FlexCol, Img } from "../../../Global.style";
 
 import { OrederSection, DivMessage, Button, DivIcon } from "./orderCard.style";
-import {useDrag} from 'react-dnd';
-import { CircularProgressbarWithChildren } from 'react-circular-progressbar';
-import 'react-circular-progressbar/dist/styles.css';
+import { useDrag } from "react-dnd";
+import { CircularProgressbarWithChildren } from "react-circular-progressbar";
+import "react-circular-progressbar/dist/styles.css";
 function OrderCard(props) {
-  const [{isDragging}, drag]= useDrag(()=>({
-    type:'card',
-    item:{id: props.id},
-    collect:(monitor)=>({
-      isDragging:!!monitor.isDragging(),
-    })
-  }))
+  const [{ isDragging }, drag] = useDrag(() => ({
+    type: "card",
+    item: { id: props.id },
+    collect: (monitor) => ({
+      isDragging: !!monitor.isDragging(),
+    }),
+  }));
 
   return (
-    <OrederSection  ref={drag} style={{border: isDragging&&"3px solid pink"}}>
+    <OrederSection
+      ref={drag}
+      style={{ border: isDragging && "3px solid pink" }}
+    >
       <FlexRow style={{ alignItems: "flex-start" }}>
         <FlexCol>
           <Typography
@@ -34,14 +30,16 @@ function OrderCard(props) {
           <Img src="/ordImg.png" />
         </FlexCol>
         <FlexCol style={{ alignItems: "center" }}>
-        <div style={{ width: 80, height: 80 }}>
-          <CircularProgressbarWithChildren  value={20}>
-               <Typography fontW="700" fontSize="32">
+          <div style={{ width: 80, height: 80 }}>
+            <CircularProgressbarWithChildren value={20}>
+              <Typography fontW="700" fontSize="32">
                 5 <br />
-                <Typography color="#9B9B9B" fontSize="14">14:00</Typography>
+                <Typography color="#9B9B9B" fontSize="14">
+                  14:00
                 </Typography>
-          </CircularProgressbarWithChildren>
-        </div>
+              </Typography>
+            </CircularProgressbarWithChildren>
+          </div>
           <Typography fontW="700">#{props.id} Leandro M.</Typography>
           <Typography color="#9B9B9B">+358414361234</Typography>
         </FlexCol>
